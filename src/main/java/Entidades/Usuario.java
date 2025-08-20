@@ -3,8 +3,8 @@ package Entidades;
 import java.util.List;
 
 public abstract class Usuario {
-    protected String nome;
-    protected int matricula;
+    private String nome;
+    private int matricula;
     protected List<Disciplina> disciplinas;
 
     
@@ -49,7 +49,7 @@ public abstract class Usuario {
 
 
 	public List<Disciplina> getDisciplina() {
-		return disciplinas;
+		return this.disciplinas;
 	}
 
 
@@ -67,7 +67,15 @@ public abstract class Usuario {
 	
 	public void imprimirListaDeDisciplinas() {
 		for(Disciplina d : this.disciplinas) {
-			System.out.print(d.nome + ", ");
+			System.out.println(d.nome);
+		}
+	}
+	
+	public void imprimirHorario() {
+		for(Disciplina d : this.disciplinas) {
+			for(Horario h : d.getHorario()) {
+				h.imprimirHorario();
+			}
 		}
 	}
 

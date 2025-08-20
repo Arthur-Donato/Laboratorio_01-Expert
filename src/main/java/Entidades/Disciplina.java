@@ -69,10 +69,17 @@ public class Disciplina {
 	public void setHorario(List<Horario> horario) {
 		this.horario = horario;
 	}
+	
+	public int adicionarNovoAluno(Aluno aluno) {
+		if(this.alunos.add(aluno)) {
+			return 1;
+		}
+		return 0;
+	}
 
 	public void imprimirListaDeAlunos() {
     	for(Aluno aluno: this.alunos) {
-    		System.out.print(aluno.nome + ", ");
+    		System.out.println(aluno.getNome());
     	}
     }
     

@@ -26,52 +26,50 @@ public class Main {
     	Professor primeiroProfessor= new Professor("Sabrina", 192939239, new ArrayList<Disciplina>());
     	Aluno primeiroAluno = new Aluno("Arthur", 202302203, new ArrayList<Disciplina>());
     	Aluno segundoAluno = new Aluno("Manoel", 2023201203, new ArrayList<Disciplina>());
-    	
-    	List<Aluno> listaDeAlunos = new ArrayList<>();
-    	listaDeAlunos.add(primeiroAluno);
-    	listaDeAlunos.add(segundoAluno);
   
     	//CRIANDO DISCIPLINAS
-    	Disciplina map = new Disciplina("MAP", primeiroProfessor, 60, listaDeAlunos, horario1);
-    	Disciplina so = new Disciplina("SO", primeiroProfessor, 60, listaDeAlunos, horario2);
-    	
-    	
-    	System.out.println("Os alunos da Disciplina " + map.nome + " sao: ");
-    	map.imprimirListaDeAlunos();
-    	System.out.println();
-    	
+    	Disciplina map = new Disciplina("Metodos avancados de programacao", primeiroProfessor, 60, new ArrayList<Aluno>(), horario1);
+    	Disciplina so = new Disciplina("Sistemas Operacionais", primeiroProfessor, 60, new ArrayList<Aluno>(), horario2);
     	
     	primeiroProfessor.adicionarNovaDisciplina(map);
     	primeiroProfessor.adicionarNovaDisciplina(so);
     	
-    	
-    	System.out.println("As disciplinas do professor(a) "+ primeiroProfessor.getNome() + " sao: ");
-    	primeiroProfessor.imprimirListaDeDisciplinas();
-    	System.out.println();
-    	
-    	System.out.println("Os horarios do professor(a) "+ primeiroProfessor.getNome() + " sao: ");
-    	primeiroProfessor.imprimirHorario();
-    	System.out.println();
-    	
-    	
-    	System.out.println("A quantidade de alunos na turma de " + map.getNome() + " sao: " + map.imprimirQuantidadeAtualDeAlunos());
-    	System.out.println("A quantidade de alunos na turma de " + so.getNome() + " sao: " + so.imprimirQuantidadeAtualDeAlunos());
-    	System.out.println();
-    	
-    	
+
     	primeiroAluno.adicionarNovaDisciplina(so);
     	primeiroAluno.adicionarNovaDisciplina(map);
     	
     	segundoAluno.adicionarNovaDisciplina(so);
     	
-    	System.out.print("As disciplinas do aluno(a) "+ primeiroAluno.getNome() + " sao: ");
+    	
+    	//SAIDAS DA ATIVIDADE
+    	
+    	System.out.println("a) As disciplinas do professor(a) "+ primeiroProfessor.getNome() + " sao: ");
+    	primeiroProfessor.imprimirListaDeDisciplinas();
+    	System.out.println();
+    	
+    	System.out.println("b) Os horarios do professor(a) "+ primeiroProfessor.getNome() + " sao: ");
+    	primeiroProfessor.imprimirHorario();
+    	System.out.println();
+    	
+    	System.out.println("c) Os alunos da Disciplina " + map.nome + " sao: ");
+    	map.imprimirListaDeAlunos();
+    	System.out.println();
+    	
+    	System.out.println("d) As disciplinas do aluno(a) "+ primeiroAluno.getNome() + " sao: ");
     	primeiroAluno.imprimirListaDeDisciplinas();
     	System.out.println();
     	
-    	
-    	System.out.print("As disciplinas do aluno(a) "+ segundoAluno.getNome() + " sao: ");
-    	segundoAluno.imprimirListaDeDisciplinas();
+    	System.out.println("e) O horario do aluno(a) "+ primeiroAluno.getNome() + " sao: ");
+    	primeiroAluno.imprimirHorario();
     	System.out.println();
+    	
+    	System.out.println("f) A quantidade de alunos na turma de " + map.getNome() + " sao: " + map.imprimirQuantidadeAtualDeAlunos());
+    	System.out.println();
+    	System.out.println("f)A quantidade de alunos na turma de " + so.getNome() + " sao: " + so.imprimirQuantidadeAtualDeAlunos());
+    	System.out.println();
+    	
+    	
+    	
     	
     	
     }
