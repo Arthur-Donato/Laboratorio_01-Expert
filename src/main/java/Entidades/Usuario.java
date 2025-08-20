@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Usuario {
     private String nome;
     private int matricula;
-    protected List<Disciplina> disciplinas;
+    private List<Disciplina> disciplinas;
 
     
     
@@ -16,45 +16,27 @@ public abstract class Usuario {
 		this.disciplinas = disciplina;
 	}
 
-
-
-	public List<Disciplina> getDisciplinas() {
-        return null;
-    }
-
-
-
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
-
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
-
 	public int getMatricula() {
-		return matricula;
+		return this.matricula;
 	}
-
-
 
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
-
-
-
-	public List<Disciplina> getDisciplina() {
-		return this.disciplinas;
-	}
-
-
-
-	public void setDisciplina(List<Disciplina> disciplina) {
+	
+	public List<Disciplina> getDisciplinas() {
+        return this.disciplinas;
+    }
+	
+	public void setDisciplinas(List<Disciplina> disciplina) {
 		this.disciplinas = disciplina;
 	}
 	
@@ -66,13 +48,13 @@ public abstract class Usuario {
 	}
 	
 	public void imprimirListaDeDisciplinas() {
-		for(Disciplina d : this.disciplinas) {
+		for(Disciplina d : this.getDisciplinas()) {
 			System.out.println(d.nome);
 		}
 	}
 	
 	public void imprimirHorario() {
-		for(Disciplina d : this.disciplinas) {
+		for(Disciplina d : this.getDisciplinas()) {
 			for(Horario h : d.getHorario()) {
 				h.imprimirHorario();
 			}

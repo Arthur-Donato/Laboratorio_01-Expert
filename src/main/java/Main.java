@@ -33,12 +33,11 @@ public class Main {
     	
     	primeiroProfessor.adicionarNovaDisciplina(map);
     	primeiroProfessor.adicionarNovaDisciplina(so);
-    	
 
-    	primeiroAluno.adicionarNovaDisciplina(so);
-    	primeiroAluno.adicionarNovaDisciplina(map);
+    	primeiroAluno.adicionarNovaDisciplinaParaAluno(so);
+    	primeiroAluno.adicionarNovaDisciplinaParaAluno(map);
     	
-    	segundoAluno.adicionarNovaDisciplina(so);
+    	segundoAluno.adicionarNovaDisciplinaParaAluno(so);
     	
     	
     	//SAIDAS DA ATIVIDADE

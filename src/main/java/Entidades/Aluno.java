@@ -9,8 +9,8 @@ public class Aluno extends Usuario {
 		super(nome, matricula, disciplina);
 	}
 	
-	public int adicionarNovaDisciplina(Disciplina disciplina) {
-		if(this.disciplinas.add(disciplina)) {
+	public int adicionarNovaDisciplinaParaAluno(Disciplina disciplina) {
+		if(this.getDisciplinas().add(disciplina)) {
 			
 			disciplina.adicionarNovoAluno(this);
 			return 1;
