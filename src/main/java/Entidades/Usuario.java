@@ -57,6 +57,7 @@ public abstract class Usuario {
 		for(Disciplina d : this.getDisciplinas()) {
 			for(Horario h : d.getHorario()) {
 				h.imprimirHorario();
+				System.out.println(d.getNome());
 			}
 		}
 	}

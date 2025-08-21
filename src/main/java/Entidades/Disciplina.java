@@ -1,5 +1,6 @@
 package Entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Disciplina {
@@ -27,7 +28,10 @@ public class Disciplina {
     	this.listaDeAlunos = listaDeAlunos;
     	this.horario = horario;
     }
-    public Disciplina() {}
+    public Disciplina() {
+		this.listaDeAlunos = new ArrayList<Aluno>();
+		this.horario = new ArrayList<Horario>();
+	}
 
     public String getNome() {
 		return this.nome;
@@ -53,6 +57,7 @@ public class Disciplina {
 		this.quantidadeMaximaDeAlunos = quantidadeMaximaDeAlunos;
 	}
 
+
 	public List<Aluno> getAlunos() {
 		return this.listaDeAlunos;
 	}
@@ -70,8 +75,10 @@ public class Disciplina {
 	}
 	
 	public int adicionarNovoAluno(Aluno aluno) {
-		if(this.listaDeAlunos.add(aluno)) {
-			return 1;
+		if(this.imprimirQuantidadeAtualDeAlunos()<this.quantidadeMaximaDeAlunos){
+			if(this.listaDeAlunos.add(aluno)) {
+				return 1;
+			}
 		}
 		return 0;
 	}
@@ -83,6 +90,9 @@ public class Disciplina {
     }
     
     public int imprimirQuantidadeAtualDeAlunos() {
+		if(this.listaDeAlunos==null){
+			return 0;
+		}
     	return this.listaDeAlunos.size();
     }
 

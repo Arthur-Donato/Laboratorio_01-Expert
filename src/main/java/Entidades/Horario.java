@@ -34,7 +34,7 @@ public class Horario {
 	}
 	
 	public void imprimirHorario() {
-		System.out.println(diaSemana + ", " + horaInicial + "-"  + horaFinal);
+		System.out.print(diaSemana + ", " + horaInicial + "-"  + horaFinal+ " ");
 	}
 
 }
