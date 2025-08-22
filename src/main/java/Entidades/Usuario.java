@@ -15,6 +15,8 @@ public abstract class Usuario {
 		this.matricula = matricula;
 		this.disciplinas = disciplina;
 	}
+	public Usuario(){}
+
 
 	public String getNome() {
 		return this.nome;

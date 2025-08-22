@@ -7,9 +7,12 @@ public class Disciplina {
 	
     public String nome;
     public Professor professorPrincipal;
-    private int quantidadeMaximaDeAlunos;
+	public int quantidadeMaximaDeProfessor;
+	private int quantidadeMaximaDeAlunos;
     public List<Aluno> listaDeAlunos;
     private List<Horario> horario;
+
+
 
     
     public Disciplina(String nome, Professor professorPrincipal, int quantidadeMaximaDeAlunos, List<Aluno> alunos, List<Horario> horario) {
@@ -32,6 +35,14 @@ public class Disciplina {
 		this.listaDeAlunos = new ArrayList<Aluno>();
 		this.horario = new ArrayList<Horario>();
 	}
+	public int getQuantidadeMaximaDeProfessor() {
+		return quantidadeMaximaDeProfessor;
+	}
+
+	public void setQuantidadeMaximaDeProfessor(int quantidadeMaximaDeProfessor) {
+		this.quantidadeMaximaDeProfessor = quantidadeMaximaDeProfessor;
+	}
+
 
     public String getNome() {
 		return this.nome;
@@ -45,8 +56,13 @@ public class Disciplina {
 		return this.professorPrincipal;
 	}
 
+	public void adicionarNovoHorario(Horario horario) {
+		this.horario.add(horario);
+	}
+
 	public void setProfessorPrincipal(Professor professorPrincipal) {
 		this.professorPrincipal = professorPrincipal;
+		professorPrincipal.getDisciplinas().add(this);
 	}
 
 	public int getQuantidadeMaximaDeAlunos() {
