@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.*;
+import Controle.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,6 +31,7 @@ public class Main {
     	//CRIANDO DISCIPLINAS
     	Disciplina map = new Disciplina("Metodos avancados de programacao", primeiroProfessor, 60, new ArrayList<Aluno>(), horario1);
     	Disciplina so = new Disciplina("Sistemas Operacionais", primeiroProfessor, 60, new ArrayList<Aluno>(), horario2);
+    	Disciplina esw = new Disciplina("Engenharia de Software", null, 60, new ArrayList<Aluno>(), horario1);
     	
     	primeiroProfessor.adicionarNovaDisciplina(map);
     	primeiroProfessor.adicionarNovaDisciplina(so);
@@ -38,6 +40,16 @@ public class Main {
     	primeiroAluno.adicionarNovaDisciplinaParaAluno(map);
     	
     	segundoAluno.adicionarNovaDisciplinaParaAluno(so);
+    	
+    	AssociarAlunoDisciplina teste = new AssociarAlunoDisciplina();
+    	AssociarProfessorDisciplina testeProfessor = new AssociarProfessorDisciplina();
+    	
+    	int resultado = teste.adicionarNovaDisciplinaParaAluno(segundoAluno, map);
+    	int segundoResultado = teste.adicionarNovaDisciplinaParaAluno(primeiroAluno, so);
+    	int terceiroResultado = testeProfessor.adicionarProfessorNaDisciplina(primeiroProfessor, so);
+    	int quartoResultado = testeProfessor.adicionarProfessorNaDisciplina(primeiroProfessor, esw);
+    	
+    	System.out.println(resultado + "-" + segundoResultado + "-" + terceiroResultado + "-" + quartoResultado);
     	
     	
     	//SAIDAS DA ATIVIDADE
