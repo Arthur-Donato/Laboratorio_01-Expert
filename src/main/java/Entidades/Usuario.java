@@ -42,13 +42,6 @@ public abstract class Usuario {
 		this.disciplinas = disciplina;
 	}
 	
-	public int adicionarNovaDisciplina(Disciplina disciplina) {
-		if(this.disciplinas.add(disciplina)) {
-			return 1;
-		}
-		return 0;
-	}
-	
 	public void imprimirListaDeDisciplinas() {
 		for(Disciplina d : this.getDisciplinas()) {
 			System.out.println(d.nome);
