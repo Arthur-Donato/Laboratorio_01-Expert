@@ -10,7 +10,6 @@ public abstract class Usuario {
     
     
     public Usuario(String nome, int matricula, List<Disciplina> disciplina) {
-		super();
 		this.nome = nome;
 		this.matricula = matricula;
 		this.disciplinas = disciplina;
@@ -40,21 +39,6 @@ public abstract class Usuario {
 	
 	public void setDisciplinas(List<Disciplina> disciplina) {
 		this.disciplinas = disciplina;
-	}
-	
-	public void imprimirListaDeDisciplinas() {
-		for(Disciplina d : this.getDisciplinas()) {
-			System.out.println(d.nome);
-		}
-	}
-	
-	public void imprimirHorario() {
-		for(Disciplina d : this.getDisciplinas()) {
-			for(Horario h : d.getHorario()) {
-				h.imprimirHorario();
-				System.out.println(d.getNome());
-			}
-		}
 	}
 
 }

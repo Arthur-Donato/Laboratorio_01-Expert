@@ -3,16 +3,16 @@ package Entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.AlunoAssociadoNaDisciplinaException;
+import exceptions.DisciplinaCheiaException;
+
 public class Disciplina {
 	
     public String nome;
     public Professor professorPrincipal;
-	public int quantidadeMaximaDeProfessor;
 	private int quantidadeMaximaDeAlunos;
     public List<Aluno> listaDeAlunos;
     private List<Horario> horario;
-
-
 
     
     public Disciplina(String nome, Professor professorPrincipal, int quantidadeMaximaDeAlunos, List<Aluno> alunos, List<Horario> horario) {
@@ -31,18 +31,11 @@ public class Disciplina {
     	this.listaDeAlunos = listaDeAlunos;
     	this.horario = horario;
     }
+	
     public Disciplina() {
 		this.listaDeAlunos = new ArrayList<Aluno>();
 		this.horario = new ArrayList<Horario>();
 	}
-	public int getQuantidadeMaximaDeProfessor() {
-		return quantidadeMaximaDeProfessor;
-	}
-
-	public void setQuantidadeMaximaDeProfessor(int quantidadeMaximaDeProfessor) {
-		this.quantidadeMaximaDeProfessor = quantidadeMaximaDeProfessor;
-	}
-
 
     public String getNome() {
 		return this.nome;
@@ -54,10 +47,6 @@ public class Disciplina {
 
 	public Professor getProfessorPrincipal() {
 		return this.professorPrincipal;
-	}
-
-	public void adicionarNovoHorario(Horario horario) {
-		this.horario.add(horario);
 	}
 
 	public void setProfessorPrincipal(Professor professorPrincipal) {
@@ -81,7 +70,7 @@ public class Disciplina {
 	public void setAlunos(List<Aluno> alunos) {
 		this.listaDeAlunos = alunos;
 	}
-
+	
 	public List<Horario> getHorario() {
 		return this.horario;
 	}
@@ -90,19 +79,33 @@ public class Disciplina {
 		this.horario = horario;
 	}
 	
-	public int adicionarNovoAluno(Aluno aluno) {
-		if(this.imprimirQuantidadeAtualDeAlunos()<this.quantidadeMaximaDeAlunos){
-			if(this.listaDeAlunos.add(aluno)) {
-				return 1;
-			}
+	public int adicionarNovoHorario(Horario horario) {
+		if(this.horario.add(horario)) {
+			return 1;
 		}
 		return 0;
 	}
+	
+	public int adicionarNovoAluno(Aluno aluno) throws DisciplinaCheiaException, AlunoAssociadoNaDisciplinaException{
+		if(this.imprimirQuantidadeAtualDeAlunos() >= this.quantidadeMaximaDeAlunos) {
+			throw new DisciplinaCheiaException();
+		}
+		if(this.listaDeAlunos.contains(aluno)) {
+			throw new AlunoAssociadoNaDisciplinaException();
+		}
+		this.listaDeAlunos.add(aluno);
+		return 1;
+		
+	}
 
-	public void imprimirListaDeAlunos() {
+	public List<Aluno> imprimirListaDeAlunos() {
+		List<Aluno> listaDeAlunos = new ArrayList<>();
     	for(Aluno aluno: this.listaDeAlunos) {
-    		System.out.println(aluno.getNome());
+    		listaDeAlunos.add(aluno);
     	}
+    	
+    	return listaDeAlunos;
+    	
     }
     
     public int imprimirQuantidadeAtualDeAlunos() {
